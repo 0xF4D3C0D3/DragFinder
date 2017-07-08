@@ -39,6 +39,7 @@ namespace DragFinder
         private static List<KeyValuePair<HashSet<Keys>, String>> multiKeyGestureList = new List<KeyValuePair<HashSet<Keys>, String>>
         {
             new KeyValuePair<HashSet<Keys>, string>(new HashSet<Keys>{Keys.LWin, Keys.F}, "Find"),
+            new KeyValuePair<HashSet<Keys>, string>(new HashSet<Keys>{Keys.LWin, Keys.T}, "Translate"),
             new KeyValuePair<HashSet<Keys>, string>(new HashSet<Keys>{Keys.LWin, Keys.Escape}, "Exit")
         };
 
@@ -57,6 +58,10 @@ namespace DragFinder
                         {
                             case "Find":
                                 ShortCutManager.find();
+                                break;
+
+                            case "Translate":
+                                ShortCutManager.translate();
                                 break;
 
                             case "Exit":
@@ -88,7 +93,6 @@ namespace DragFinder
 
             if (nCode >= 0 && wParam == (IntPtr)WM_KEYDOWN)
             {
-                //Console.WriteLine(vkCode + " " + bSendKey.ToString());
                 MultiKeyGesture.keyDown(vkCode);
                 if (keyMapping(vkCode))
                     res = (IntPtr)1;
@@ -116,5 +120,29 @@ namespace DragFinder
             UnhookWindowsHookEx(_hookID);
         }
 
+        public static string getSelection()
+        {
+            try
+            {
+                string prevClipboardText = Clipboard.GetText();
+                MultiKeyGesture.sendKeyAvoidHook("^c");
+                Thread.Sleep(100);
+
+                string selectedText = Clipboard.GetText();
+                selectedText = selectedText.Trim();
+                selectedText = selectedText.Replace(Environment.NewLine, " ");
+
+                Clipboard.SetText(prevClipboardText);
+                if (prevClipboardText == selectedText)
+                    return "";
+                else
+                    return selectedText;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "";
+            }
+        }
     }
 }

@@ -10,3 +10,4 @@ D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.csprojResolveAssemb
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.MenuForm.resources
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.AdditionalInfoForm.resources
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.HelpForm.resources
+D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.TranslateForm.resources

@@ -22,6 +22,17 @@ namespace DragFinder
             MenuForm menuForm = new MenuForm();
         }
 
+        public static void translate()
+        {
+            var thread_translate = new Thread(new ThreadStart(translate_impl));
+            thread_translate.SetApartmentState(ApartmentState.STA);
+            thread_translate.Start();
+        }
+        private static void translate_impl()
+        {
+            TranslateForm tanslateForm = new TranslateForm();
+        }
+
         public static void exit()
         {
             Program.myForm.exit();

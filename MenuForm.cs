@@ -26,17 +26,12 @@ namespace DragFinder
         private int prevScroll = 0;
 
         private string selectedText;
-        private const int WM_KEYDOWN = 0x0100;
-        private const int WM_KEYUP = 0x0101;
 
         [DllImport("user32.dll", SetLastError = false)]
         private static extern IntPtr GetDesktopWindow();
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
-
-        [DllImport("user32.dll")]
-        internal static extern IntPtr SetForegroundWindow(IntPtr hWnd);
 
         protected override void OnHandleCreated(EventArgs e)
         {
@@ -48,50 +43,13 @@ namespace DragFinder
             base.OnHandleCreated(e);
         }
 
-        private string getSelection()
-        {
-            try
-            {
-                string prevClipboardText = Clipboard.GetText();
-                MultiKeyGesture.sendKeyAvoidHook("^c");
-                Thread.Sleep(100);
-
-                string selectedText = Clipboard.GetText();
-                selectedText = selectedText.Trim();
-
-                Clipboard.SetText(prevClipboardText);
-
-                if (prevClipboardText == selectedText)
-                    return "";
-                else
-                    return selectedText;
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
-                return "";
-            }
-        }
-
-        private void InvokeOnFormThread(Action behavior)
-        {
-            if (IsHandleCreated && InvokeRequired)
-            {
-                Invoke(behavior);
-            }
-            else
-            {
-                behavior();
-            }
-        }
-
         private void addMeanings(List<KeyValuePair<string, string>> meanings)
         {
             foreach (var i in meanings)
             {
                 LinkLabel label = new LinkLabel();
                 label.Text = i.Key;
-                label.Font = new Font("나눔 고딕", 10);
+                label.Font = new Font("맑은 고딕", 10);
                 label.LinkColor = Color.Black;
                 label.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
                 label.AutoSize = true;
@@ -122,7 +80,7 @@ namespace DragFinder
 
         private void initDisplay(int currentDisplayCount)
         {
-            selectedText = getSelection();
+            selectedText = Hook.getSelection();
             Console.WriteLine("SEARCH : " + selectedText);
             addMeanings(DictParser.getInfoFromNaverAPI(selectedText, currentDisplayCount));
         }

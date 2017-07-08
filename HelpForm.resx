@@ -117,6 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label1.Text" xml:space="preserve">
+    <value>1. 모르는 단어를 마우스로 드래그 합니다.
+2-1. Window 키 + F를 꾹 누르면 사전 정의가 나오고
+2-2. Window 키 + T를 꾹 누르면 번역 결과가 나옵니다.
+3. 끝
+
+4. 가끔 제대로 드래그 했는데 400 에러가 뜬다면 다른곳을 잠깐 복사하고 시도해보세요.
+5. 네이버 API를 사용하여 문장 번역은 복불복입니다..ㅠㅠ 단어에만 사용해주세요.
+6. 사전 정의는 먼저 5개를 보여주고 스크롤하여 마지막까지 보면 추가로 5개 더 찾아드려요.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

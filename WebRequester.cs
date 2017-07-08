@@ -14,21 +14,53 @@ namespace DragFinder
 
         public static string getResponseSearchAPI(string query, int displayCount = 10, int startIdx = 0)
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create($@"https://openapi.naver.com/v1/search/encyc.json?query={query}&display={displayCount}&start={startIdx}");
+            var request = (HttpWebRequest)WebRequest.Create($@"https://openapi.naver.com/v1/search/encyc.json?query={query}&display={displayCount}&start={startIdx}");
 
-            httpWebRequest.Headers["X-Naver-Client-Id"] = APIKey.X_Naver_Client_Id;
-            httpWebRequest.Headers["X-Naver-Client-Secret"] = APIKey.X_Naver_Client_Secret;
+            request.Headers["X-Naver-Client-Id"] = APIKey.X_Naver_Client_Id;
+            request.Headers["X-Naver-Client-Secret"] = APIKey.X_Naver_Client_Secret;
 
-            httpWebRequest.Method = "GET";
+            request.Method = "GET";
 
             try
             {
-                var httpResponse = (HttpWebResponse)httpWebRequest.GetResponse();
+                var httpResponse = (HttpWebResponse)request.GetResponse();
                 using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
                 {
                     return streamReader.ReadToEnd();
                 }
-            } catch (WebException e)
+            }
+            catch (WebException e)
+            {
+                return e.Message;
+            }
+        }
+
+        public static string getResponseTranslateAPI(string source, string text)
+        {
+
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(@"https://openapi.naver.com/v1/language/translate");
+
+            request.Headers["X-Naver-Client-Id"] = APIKey.X_Naver_Client_Id;
+            request.Headers["X-Naver-Client-Secret"] = APIKey.X_Naver_Client_Secret;
+
+            request.Method = "POST";
+            byte[] byteDataParams = Encoding.UTF8.GetBytes($"source={source}&target=ko&text={text}");
+            request.ContentType = "application/x-www-form-urlencoded";
+            request.ContentLength = byteDataParams.Length;
+
+            try
+            {
+                Stream st = request.GetRequestStream();
+                st.Write(byteDataParams, 0, byteDataParams.Length);
+                st.Close();
+                HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                Stream stream = response.GetResponseStream();
+
+                using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+                {
+                    return reader.ReadToEnd();
+                }
+            } catch (Exception e)
             {
                 return e.Message;
             }

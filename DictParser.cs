@@ -21,6 +21,23 @@ namespace DragFinder
                 yield return str.Substring(i, Math.Min(maxChunkSize, str.Length - i));
         }
 
+        public static string getTranslateFromNaverAPI(string source, string text)
+        {
+            var jsonResponseRaw = WebRequester.getResponseTranslateAPI(source, text);
+            try
+            {
+                JObject jsonResponse = JObject.Parse(jsonResponseRaw);
+
+                string result = (string)jsonResponse["message"]["result"]["translatedText"];
+                
+                return result;
+            }
+            catch (Exception e)
+            {
+                return $@"죄송합니다. {jsonResponseRaw} 에러가 터졌네요. 여길 가서 확인해보세요 -> https://developers.naver.com/docs/common/common_error/";
+            }
+        }
+
         public static List<KeyValuePair<string, string>> getInfoFromNaverAPI(string queryWord, int currentDisplayCount)
         {
             var jsonResponseRaw = WebRequester.getResponseSearchAPI(queryWord, 5, currentDisplayCount);
