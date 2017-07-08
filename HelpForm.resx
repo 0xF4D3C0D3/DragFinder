@@ -125,6 +125,7 @@
 
 4. 가끔 제대로 드래그 했는데 400 에러가 뜬다면 다른곳을 잠깐 복사하고 시도해보세요.
 5. 네이버 API를 사용하여 문장 번역은 복불복입니다..ㅠㅠ 단어에만 사용해주세요.
+(그래도 일본어 번역은 꽤 합니다.)
 6. 사전 정의는 먼저 5개를 보여주고 스크롤하여 마지막까지 보면 추가로 5개 더 찾아드려요.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />

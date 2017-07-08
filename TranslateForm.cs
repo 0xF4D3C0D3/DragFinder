@@ -44,7 +44,7 @@ namespace DragFinder
 
             selectedText = Hook.getSelection();
             Console.WriteLine("select "+selectedText);
-            translatedText = DictParser.getTranslateFromNaverAPI("en", selectedText);
+            translatedText = DictParser.getTranslateFromNaverAPI(selectedText);
 
             translatedTB.ReadOnly = true;
             translatedTB.BorderStyle = 0;

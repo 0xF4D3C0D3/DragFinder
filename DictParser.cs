@@ -21,9 +21,31 @@ namespace DragFinder
                 yield return str.Substring(i, Math.Min(maxChunkSize, str.Length - i));
         }
 
-        public static string getTranslateFromNaverAPI(string source, string text)
+        private static string getDetectedLanguage(string text)
         {
-            var jsonResponseRaw = WebRequester.getResponseTranslateAPI(source, text);
+            string detectedLanguage;
+
+            text = Regex.Replace(text, @"\d|\s", String.Empty);
+
+            if (Regex.Matches(text, @"\p{IsBasicLatin}").Count != 0)
+            {
+                detectedLanguage = "en";
+            } else if(Regex.Matches(text, @"\p{IsHiragana}|\p{IsKatakana}|\p{IsKatakanaPhoneticExtensions}").Count != 0)
+            {
+                detectedLanguage = "ja";
+            }
+            else
+            {
+                detectedLanguage = "zh-CN";
+            }
+
+            return detectedLanguage;
+        }
+
+        public static string getTranslateFromNaverAPI(string text)
+        {
+
+            var jsonResponseRaw = WebRequester.getResponseTranslateAPI(getDetectedLanguage(text), text);
             try
             {
                 JObject jsonResponse = JObject.Parse(jsonResponseRaw);
