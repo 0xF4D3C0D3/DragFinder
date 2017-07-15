@@ -11,3 +11,16 @@ D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.MenuForm.resources
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.AdditionalInfoForm.resources
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.HelpForm.resources
 D:\Dongho Box 1\DragFinder\DragFinder\obj\Release\DragFinder.TranslateForm.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\bin\Release\DragFinder.exe.config
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\bin\Release\DragFinder.exe
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\bin\Release\DragFinder.pdb
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.csprojResolveAssemblyReference.cache
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.AdditionalInfoForm.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.Form1.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.HelpForm.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.MenuForm.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.Properties.Resources.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.TranslateForm.resources
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.csproj.GenerateResource.Cache
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.exe
+D:\Dongho Box 1\DragFinder_Project\DragFinder\DragFinder\obj\Release\DragFinder.pdb

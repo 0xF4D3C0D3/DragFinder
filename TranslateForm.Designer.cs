@@ -40,8 +40,6 @@
             this.translatedTB.ReadOnly = true;
             this.translatedTB.Size = new System.Drawing.Size(500, 10);
             this.translatedTB.TabIndex = 0;
-            this.translatedTB.MouseEnter += new System.EventHandler(this.TranslateForm_MouseEnter);
-            this.translatedTB.MouseLeave += new System.EventHandler(this.TranslateForm_MouseLeave);
             // 
             // TranslateForm
             // 

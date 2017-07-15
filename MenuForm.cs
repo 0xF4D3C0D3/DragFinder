@@ -60,8 +60,6 @@ namespace DragFinder
                 label.Links.Add(link);
 
                 label.LinkClicked += new LinkLabelLinkClickedEventHandler(labelClicked);
-                label.MouseEnter += new System.EventHandler(this.MenuForm_MouseHover);
-                label.MouseLeave += new System.EventHandler(this.MenuForm_MouseLeave);
 
                 if (bColor)
                 {
@@ -109,14 +107,10 @@ namespace DragFinder
                 this.Close();
             };
 
-            MultiKeyGesture.keyUpEvent += handler;
-
             if (MultiKeyGesture.bMatched == false)
-            {
-                MultiKeyGesture.keyUpEvent -= handler;
                 return;
-            }
-
+            
+            MultiKeyGesture.keyUpEvent += handler;
             this.Show();
             Application.Run();
         }
@@ -140,16 +134,6 @@ namespace DragFinder
             }
             prevScroll = currentScroll.Y;
             Console.WriteLine(currentScroll.Y);
-        }
-
-        private void MenuForm_MouseHover(object sender, EventArgs e)
-        {
-            this.Opacity = 1;
-        }
-
-        private void MenuForm_MouseLeave(object sender, EventArgs e)
-        {
-            this.Opacity = 0.1;
         }
     }
 }

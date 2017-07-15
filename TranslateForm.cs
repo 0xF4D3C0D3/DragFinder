@@ -83,15 +83,5 @@ namespace DragFinder
             int h = sz.Height + borders + padding;
             translatedTB.Height = h;
         }
-
-        private void TranslateForm_MouseEnter(object sender, EventArgs e)
-        {
-            this.Opacity = 1;
-        }
-
-        private void TranslateForm_MouseLeave(object sender, EventArgs e)
-        {
-            this.Opacity = 0.1;
-        }
     }
 }

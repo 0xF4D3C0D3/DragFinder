@@ -10,8 +10,6 @@ namespace DragFinder
 {
     class WebRequester
     {
-        private static HttpWebRequest request;
-
         public static string getResponseSearchAPI(string query, int displayCount = 10, int startIdx = 0)
         {
             var request = (HttpWebRequest)WebRequest.Create($@"https://openapi.naver.com/v1/search/encyc.json?query={query}&display={displayCount}&start={startIdx}");

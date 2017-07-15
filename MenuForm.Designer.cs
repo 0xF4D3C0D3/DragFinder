@@ -60,8 +60,6 @@
             this.simpleMeaningsPanel.Size = new System.Drawing.Size(0, 0);
             this.simpleMeaningsPanel.TabIndex = 2;
             this.simpleMeaningsPanel.WrapContents = false;
-            this.simpleMeaningsPanel.MouseEnter += new System.EventHandler(this.MenuForm_MouseHover);
-            this.simpleMeaningsPanel.MouseLeave += new System.EventHandler(this.MenuForm_MouseLeave);
             // 
             // MenuForm
             // 
